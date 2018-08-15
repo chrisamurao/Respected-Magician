@@ -29,6 +29,10 @@ export default class HomeScreen extends React.Component {
     this.props.navigation.navigate("Auth");
   };
 
+  _experiment = () => {
+    this.props.navigation.navigate("Experiment")
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -36,6 +40,13 @@ export default class HomeScreen extends React.Component {
         <Button title="Journal Button" onPress={this._switchToJournal} />
         <Button title="Photo / Video Button" onPress={this._switchToPhotoVideo} />
         <Button title="Sign Out" onPress={this._signOutAsync} />
+
+        <Button 
+          title="Experimental Features" 
+          onPress={this._experiment}
+          color={"#ff0000"}
+          accessibilityLabel="this is an accessibility label" />
+
       </View>
     );
   }
