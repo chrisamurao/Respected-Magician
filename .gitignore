@@ -2,6 +2,7 @@
 package-lock.json
 packager-info.json
 config.js
+Experimental/
 
 # Logs
 logs

@@ -6,25 +6,28 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 
 class ExperimentZone extends Component {
 
-  // static navigationOptions = {
-  //   tabBarIcon: ({ focused, tintColor }) => (
-  //     <Ionicons
-  //       name={`ios-options${focused ? "" : "-outline"}`}
-  //       size={25}
-  //       color={tintColor}
-  //     />
-  //   )
-  // };
+  static navigationOptions = {
+    tabBarIcon: ({ focused, tintColor }) => (
+      <Ionicons
+        name={`ios-options${focused ? "" : "-outline"}`}
+        size={25}
+        color={tintColor}
+      />
+    )
+  };
 
   render() {
-    return (
-      <View>
-        <Text>Things I am experimenting with (why is there an extra header bar?)</Text>
-        <Button onPress={()=>{}}>GraphQL TODO: Link to it </Button>
-        <Button onPress={()=>{}}>Redux TODO: Link to it </Button>
-        <Button onPress={()=>{}}>Styling, link to it</Button>
-      </View>
-    )
+    return <View style={styles.container}>
+        <Text>
+          Things I am experimenting with (why is there an extra header bar?)
+        </Text>
+        <Button title="GraphQL TODO: Link to it" onPress={() => {}} />
+        <Button title="Redux TODO: Link to it" onPress={() => {}} />
+        <Button title="Styling, link to it" onPress={() => {}} />
+        <Button title="HyperTodo Feature, link to it" onPress={() => {}} />
+        <Button title="etc feature, link to it" onPress={() => {}} />
+        <Button title="medication info feature, link to it" onPress={() => {}} />
+      </View>;
   }
 }
 
@@ -32,4 +35,12 @@ export default ExperimentNavigator = createStackNavigator({
   //GraphQL,
   //Redux
   ExperimentZone
+});
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  }
 });
