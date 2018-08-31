@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import { createStackNavigator } from 'react-navigation';
 
 import { StyleSheet, View, Text, Button, TextInput, FlatList, SafeAreaView, SectionList, TouchableOpacity, AsyncStorage, Alert } from "react-native";
+
 // import dummyData from "./dummyData/journalData.js";
 import { List, ListItem } from "react-native-elements";
+import {
+  MaterialCommunityIcons
+} from '@expo/vector-icons';
 import EditSettings from './EditSettings';
 
 class SettingsMain extends Component {
@@ -50,36 +54,37 @@ class SettingsMain extends Component {
     if (this.state.view === 'default') {
       return (
         <View>
-          <View style={styles.container}>
-            <TouchableOpacity
-              style={[
-                styles.button,
-                { backgroundColor: this.state.color }
-              ]}
-              onPress={() => { this.changeView('edit') }}
-              >
-              <Text style={styles.text}>Update Haven Color</Text>
+          <ImageBackground source={require('../../../../assets/img/gradient-background-image.png')} style={{ width: '100%', height: '100%' }}>
+            <View style={styles.homeButtonRow}>
+            <TouchableOpacity>
+              <MaterialCommunityIcons
+                name="home-outline"
+                size={30}
+                color="#ffffff"
+                onPress={() => this.props.navigation.goBack()}
+              />
             </TouchableOpacity>
           </View>
+            <View style={styles.container}>
+              <TouchableOpacity
+                style={[
+                  styles.button,
+                  { backgroundColor: this.state.color }
+                ]}
+                onPress={() => { this.changeView('edit') }}
+                >
+                <Text style={styles.text}>Update Haven Color</Text>
+              </TouchableOpacity>
+            </View>
 
-          <View style={{ backgroundColor: 'white'}}>
-            <Text style={{ fontWeight: 'bold' }}> Haven color
-            </Text>
-            <TouchableOpacity
-              style={[
-                styles.colorPreview,
-                { backgroundColor: this.state.color }
-              ]}
-            >
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.container}>
-            <TouchableOpacity
-              style={[
-                styles.button,
-              ]}
-              onPress={() => { this.changeView('edit') }}
+            <View style={{ backgroundColor: 'white'}}>
+              <Text style={{ fontWeight: 'bold' }}> Haven color
+              </Text>
+              <TouchableOpacity
+                style={[
+                  styles.colorPreview,
+                  { backgroundColor: this.state.color }
+                ]}
               >
               <Text style={styles.text}>Change Settings</Text>
             </TouchableOpacity>
@@ -107,6 +112,7 @@ class SettingsMain extends Component {
           <Button title="Log Out" onPress={this._signOutAsync}/>
           <Button title="Clear cache" onPress={this._clearAsync}/>
 
+
         </View>
       )
     }
@@ -131,7 +137,7 @@ const styleObject = {
   borderRadius: 10,
   borderWidth: 1
   }
-}  
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -162,6 +168,13 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 4,
     shadowOpacity: 0.25
+  },
+  homeButtonRow: {
+    height: 40,
+    paddingRight: 15,
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+    marginTop: 45,
   }
 });
 

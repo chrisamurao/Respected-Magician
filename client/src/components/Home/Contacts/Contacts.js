@@ -10,7 +10,7 @@ import _ from 'lodash';
 /**
  * Expo Documentation for getting contacts:
  * {@link https://docs.expo.io/versions/v29.0.0/sdk/contacts}
- * 
+ *
  */
 const { width: DEVICE_WIDTH, height: DEVICE_HEIGHT } = Dimensions.get("window");
 
@@ -24,7 +24,7 @@ export default class ContactsScreen extends Component {
       message: ''
     }
   }
-  
+
   componentDidMount(){
     this.getContactsFromStorage();
   }
@@ -74,14 +74,14 @@ export default class ContactsScreen extends Component {
   }
 
   renderHeader = () => (
-    <SearchBar 
-      placeholder="Search your Haven..." 
+     <SearchBar
+      placeholder="Search your Haven..."
       placeholderTextColor='grey'
       round
       containerStyle={{ backgroundColor: 'transparent', borderBottomColor: 'transparent', borderTopColor: 'transparent'}}
       inputContainerStyle={{ backgroundColor: 'white' }}
       inputStyle={{ backgroundColor: 'white' }}
-      onChangeText={this.handleSearch} 
+      onChangeText={this.handleSearch}
     />
   )
 
@@ -114,7 +114,7 @@ export default class ContactsScreen extends Component {
       activeOpacity={0.7}
     />
   )
-  
+
   renderSeparator = () => (
     <View
       style={{
@@ -128,7 +128,6 @@ export default class ContactsScreen extends Component {
 
   renderNavRow = () => (
     <View style={styles.navRow}>
-      
       <TouchableOpacity accessible={true}
       accessibilityLabel={'Add a Friend '}>
         <MaterialIcons
@@ -204,10 +203,10 @@ export default class ContactsScreen extends Component {
                   underlayColor={'#d3d3d3'}
                   title={`${item.name}`}
                   titleStyle={{color:'white', fontFamily:'Avenir-Medium'}}
-                  subtitle={item.phoneNumbers && item.phoneNumbers[0].number} 
+                  subtitle={item.phoneNumbers && item.phoneNumbers[0].number}
                   subtitleStyle={{ color: '#d3d3d3', fontFamily:'Avenir-Medium'}}
-                  avatar={<Avatar size={200} 
-                    rounded 
+                  avatar={<Avatar size={200}
+                    rounded
                     overlayContainerStyle={{ backgroundColor: 'white' }}
                     icon={{ name: "star", color: "tomato" }} 
                     onPress={() => console.log("Works!")} activeOpacity={0.7} 
@@ -222,7 +221,6 @@ export default class ContactsScreen extends Component {
                 keyExtractor={item => item.id} 
                 automaticallyAdjustContentInsets={false}
               />
-                  
           </List>
           {/* {this.state.message && this.renderSendAllButton()} */}
         </ImageBackground>
