@@ -98,7 +98,6 @@ export default class ContactsScreen extends Component {
           autoFocus
           selectionColor='white'
         />
-      </View>
       {/* <FormValidationMessage>Error message</FormValidationMessage> */}
     </View>
   )
