@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { createStackNavigator } from 'react-navigation';
 
-import { StyleSheet, View, Text, Button, TextInput, FlatList, SafeAreaView, SectionList, TouchableOpacity, AsyncStorage } from "react-native";
+import { StyleSheet, View, Text, Button, TextInput, FlatList, SafeAreaView, SectionList, TouchableOpacity, AsyncStorage, Alert } from "react-native";
 // import dummyData from "./dummyData/journalData.js";
 import { List, ListItem } from "react-native-elements";
 import EditSettings from './EditSettings';
@@ -40,6 +40,10 @@ class SettingsMain extends Component {
   _signOutAsync = async () => {
     await AsyncStorage.removeItem("userToken");
     this.props.navigation.navigate("Auth");
+  };
+  _clearAsync = async () => {
+    await AsyncStorage.clear();
+    Alert.alert("Async Storage cleared")
   };
 
   render() {
@@ -101,6 +105,7 @@ class SettingsMain extends Component {
             </List>
           </SafeAreaView>
           <Button title="Log Out" onPress={this._signOutAsync}/>
+          <Button title="Clear cache" onPress={this._clearAsync}/>
 
         </View>
       )
